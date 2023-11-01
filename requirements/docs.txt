@@ -22,11 +22,19 @@ babel==2.13.1
     #   sphinx
 beautifulsoup4==4.12.2
     # via pydata-sphinx-theme
+<<<<<<< HEAD
 boto3==1.28.78
     # via
     #   -r requirements/base.txt
     #   fs-s3fs
 botocore==1.31.78
+=======
+boto3==1.28.75
+    # via
+    #   -r requirements/base.txt
+    #   fs-s3fs
+botocore==1.31.75
+>>>>>>> 7abe52e (refactor: quality fixes)
     # via
     #   -r requirements/base.txt
     #   boto3
@@ -38,7 +46,11 @@ charset-normalizer==3.3.2
 django==3.2.23
     # via
     #   -r requirements/base.txt
+    #   django-crum
     #   openedx-django-pyfs
+    #   openedx-filters
+django-crum==0.7.9
+    # via -r requirements/base.txt
 docutils==0.19
     # via
     #   pydata-sphinx-theme
@@ -88,6 +100,8 @@ openedx-django-pyfs==3.4.0
     # via
     #   -r requirements/base.txt
     #   xblock
+openedx-filters==1.6.0
+    # via -r requirements/base.txt
 packaging==23.2
     # via
     #   pydata-sphinx-theme
