@@ -12,11 +12,19 @@ asgiref==3.7.2
     # via
     #   -r requirements/base.txt
     #   django
+<<<<<<< HEAD
 boto3==1.28.79
     # via
     #   -r requirements/base.txt
     #   fs-s3fs
 botocore==1.31.79
+=======
+boto3==1.28.75
+    # via
+    #   -r requirements/base.txt
+    #   fs-s3fs
+botocore==1.31.75
+>>>>>>> 6ca2112 (refactor: quality fixes)
     # via
     #   -r requirements/base.txt
     #   boto3

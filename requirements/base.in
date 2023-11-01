@@ -3,4 +3,8 @@
 
 Xblock[django]
 django_crum
+<<<<<<< HEAD
 openedx-filters
+=======
+openedx_filters
+>>>>>>> 6ca2112 (refactor: quality fixes)
