@@ -3,11 +3,11 @@
 <div class="wrapper-comp-settings is-active editor-with-buttons" id="settings-tab">
   <ul class="list-input settings-list">
     <li class="field comp-setting-entry is-set">{% trans "This XBlock allows you to collect student feedback on pieces of the course. This may be helpful either for course improvement, or to give students a chance to reflect on what they have done." %}</li>
-  
+
     <li class="field comp-setting-entry is-set">
       <div class="wrapper-comp-setting">
         <label class="label setting-label" aria-describedby="ff_p_div">{% trans "Freeform prompt" %}
-          <input class="input setting-input" name="freeform" id="freeform" value="{{freeform}}" type="text" />
+          <input class="input setting-input" name="freeform" id="freeform" value="{% trans freeform %}" type="text" />
         </label>
       </div>
       <span class="tip setting-help" id="ff_p_div">{% trans "Example: Please provide us feedback on this section." %}</span>
@@ -16,7 +16,7 @@
     <li class="field comp-setting-entry is-set">
       <div class="wrapper-comp-setting">
         <label aria-describedby="placeholder_span" class="label setting-label">{% trans "Freeform placeholder" %}
-          <input class="input setting-input" name="placeholder" id="placeholder" value="{{placeholder}}" type="text" />
+          <input class="input setting-input" name="placeholder" id="placeholder" value="{% trans placeholder %}" type="text" />
         </label>
       </div>
       <span id="placeholder_span" class="tip setting-help">{% trans "This is shown as grayed out text before the student has answered." %}</span>
@@ -25,12 +25,12 @@
     <li class="field comp-setting-entry is-set">
       <div class="wrapper-comp-setting">
         <label aria-describedby="icon_set_option" class="label setting-label">{% trans "Likert icon set" %}
-	<select name="icon_set">
-	  <option value="face">{% trans "Faces (happy to sad)" %}</option>
-	  <option value="midface">{% trans "Faces (sad to happy to sad)" %}</option>
-	  <option value="num">{% trans "Numeric" %}</option>
-	</select>
-	</label>
+  <select name="icon_set">
+    <option value="face">{% trans "Faces (happy to sad)" %}</option>
+    <option value="midface">{% trans "Faces (sad to happy to sad)" %}</option>
+    <option value="num">{% trans "Numeric" %}</option>
+  </select>
+  </label>
       </div>
       <span id="icon_set_option" class="tip setting-help">{% trans "We can either show happy/sad faces, or numbers 1-5." %}</span>
     </li>
@@ -38,7 +38,7 @@
     <li class="field comp-setting-entry is-set">
       <div class="wrapper-comp-setting">
         <label aria-describedby="lik_example" class="label setting-label">{% trans "Likert prompt" %}
-          <input class="input setting-input" name="likert" id="likert" value="{{likert}}" type="text" />
+          <input class="input setting-input" name="likert" id="likert" value="{% trans likert %}" type="text" />
         </label>
       </div>
       <span id="lik_example" class="tip setting-help">{% trans "Example: Please rate your overall experience with this section." %}</span>
@@ -47,7 +47,7 @@
     <li class="field comp-setting-entry is-set">
       <div class="wrapper-comp-setting">
         <label aria-describedby="lik_excel" class="label setting-label">{% trans "Likert option 1" %}
-          <input class="input setting-input" name="likert0" id="likert0" value="{{likert0}}" type="text" />
+          <input class="input setting-input" name="likert0" id="likert0" value="{% trans likert0 %}" type="text" />
         </label>
       </div>
       <span id="lik_excel" class="tip setting-help">{% trans "Example: Excellent!" %}</span>
@@ -56,7 +56,7 @@
     <li class="field comp-setting-entry is-set">
       <div class="wrapper-comp-setting">
         <label aria-describedby="lik_good" class="label setting-label">{% trans "Likert option 2" %}
-          <input class="input setting-input" name="likert1" id="likert1" value="{{likert1}}" type="text" />
+          <input class="input setting-input" name="likert1" id="likert1" value="{% trans likert1 %}" type="text" />
         </label>
       </div>
       <span id="lik_good" class="tip setting-help">{% trans "Example: Good" %}</span>
@@ -65,7 +65,7 @@
     <li class="field comp-setting-entry is-set">
       <div class="wrapper-comp-setting">
         <label aria-describedby="lik_ave" class="label setting-label">{% trans "Likert option 3" %}
-          <input class="input setting-input" name="likert2" id="likert2" value="{{likert2}}" type="text" />
+          <input class="input setting-input" name="likert2" id="likert2" value="{% trans likert2 %}" type="text" />
         </label>
       </div>
       <span id="lik_ave" class="tip setting-help">{% trans "Example: Average" %}</span>
@@ -74,7 +74,7 @@
     <li class="field comp-setting-entry is-set">
       <div class="wrapper-comp-setting">
         <label aria-describedby="lik_fair" class="label setting-label">{% trans "Likert option 4" %}
-          <input class="input setting-input" name="likert3" id="likert3" value="{{likert3}}" type="text" />
+          <input class="input setting-input" name="likert3" id="likert3" value="{% trans likert3 %}" type="text" />
         </label>
       </div>
       <span id="lik_fair" class="tip setting-help">{% trans "Example: Fair" %}</span>
@@ -83,7 +83,7 @@
     <li class="field comp-setting-entry is-set">
       <div class="wrapper-comp-setting">
         <label aria-describedby="lik_poor" class="label setting-label">{% trans "Likert option 5" %}
-          <input class="input setting-input" name="likert4" id="likert4" value="{{likert4}}" type="text" />
+          <input class="input setting-input" name="likert4" id="likert4" value="{% trans likert4 %}" type="text" />
         </label>
       </div>
       <span id="lik_poor" class="tip setting-help">{% trans "Example: Poor" %}</span>

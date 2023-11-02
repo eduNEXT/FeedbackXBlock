@@ -1,0 +1,264 @@
+# edX translation file.
+# Copyright (C) 2023 EdX
+# This file is distributed under the GNU AFFERO GENERAL PUBLIC LICENSE.
+# EdX Team <info@edx.org>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.1a\n"
+"Report-Msgid-Bugs-To: openedx-translation@googlegroups.com\n"
+"POT-Creation-Date: 2023-06-13 08:00+0000\n"
+"PO-Revision-Date: 2023-06-13 09:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: openedx-translation <openedx-translation@googlegroups.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: feedback.py:43
+msgid "What did you learn from this? What was missing?"
+msgstr ""
+
+#: feedback.py:44
+msgid ""
+"Think about the material, and try to synthesize key lessons learned, as well"
+" as key gaps in our presentation."
+msgstr ""
+
+#: feedback.py:46
+msgid "How would you rate this as a learning experience?"
+msgstr ""
+
+#: feedback.py:47
+msgid ""
+"Take a little bit of time to reflect here. Research shows that a meaningful "
+"synthesis will help you better understand and remember material from this "
+"course."
+msgstr ""
+
+#: feedback.py:51 feedback.py:124
+msgid "Excellent"
+msgstr ""
+
+#: feedback.py:51 feedback.py:125
+msgid "Good"
+msgstr ""
+
+#: feedback.py:51 feedback.py:126
+msgid "Average"
+msgstr ""
+
+#: feedback.py:51 feedback.py:127
+msgid "Fair"
+msgstr ""
+
+#: feedback.py:51 feedback.py:128
+msgid "Poor"
+msgstr ""
+
+#: feedback.py:55
+msgid "Freeform user prompt"
+msgstr ""
+
+#: feedback.py:61 feedback.py:77
+msgid "Random number generated for p. -1 if uninitialized"
+msgstr ""
+
+#: feedback.py:66
+msgid "How user voted. -1 if didn't vote"
+msgstr ""
+
+#: feedback.py:72
+msgid "What percent of the time should this show?"
+msgstr ""
+
+#: feedback.py:82
+msgid "A list of user votes"
+msgstr ""
+
+#: feedback.py:86
+msgid "Feedback"
+msgstr ""
+
+#: feedback.py:89
+msgid "Display Name"
+msgstr ""
+
+#: feedback.py:90
+msgid "Provide Feedback"
+msgstr ""
+
+#: feedback.py:119
+msgid "Please reflect on this course material"
+msgstr ""
+
+#: feedback.py:120
+msgid ""
+"Please take time to meaningfully reflect on your experience with this course"
+" material."
+msgstr ""
+
+#: feedback.py:123
+msgid "Please rate your overall experience"
+msgstr ""
+
+#: feedback.py:130
+msgid "Please take a moment to thoughtfully reflect."
+msgstr ""
+
+#: feedback.py:225 feedback.py:346
+msgid "Thank you for voting!"
+msgstr ""
+
+#: feedback.py:340
+msgid "Please vote!"
+msgstr ""
+
+#: feedback.py:354
+msgid "Thank you for your feedback!"
+msgstr ""
+
+#: templates/html/feedback.html:17
+msgid "Submit Feedback"
+msgstr ""
+
+#: templates/html/studio_view.html:5
+msgid ""
+"This XBlock allows you to collect student feedback on pieces of the course. "
+"This may be helpful either for course improvement, or to give students a "
+"chance to reflect on what they have done."
+msgstr ""
+
+#: templates/html/studio_view.html:9
+msgid "Display name"
+msgstr ""
+
+#: templates/html/studio_view.html:12
+msgid "The name of the component."
+msgstr ""
+
+#: templates/html/studio_view.html:17
+msgid "Voting message"
+msgstr ""
+
+#: templates/html/studio_view.html:20
+msgid "The message to show after user vote."
+msgstr ""
+
+#: templates/html/studio_view.html:25
+msgid "Feedback message"
+msgstr ""
+
+#: templates/html/studio_view.html:28
+msgid "The message to show after user feedback."
+msgstr ""
+
+#: templates/html/studio_view.html:33
+msgid "Show aggregate report to students"
+msgstr ""
+
+#: templates/html/studio_view.html:35
+msgid "False"
+msgstr ""
+
+#: templates/html/studio_view.html:36
+msgid "True"
+msgstr ""
+
+#: templates/html/studio_view.html:39
+msgid "Wheter to show the aggregate report to students."
+msgstr ""
+
+#: templates/html/studio_view.html:44
+msgid "Freeform prompt"
+msgstr ""
+
+#: templates/html/studio_view.html:47
+msgid "Example: Please provide us feedback on this section."
+msgstr ""
+
+#: templates/html/studio_view.html:52
+msgid "Freeform placeholder"
+msgstr ""
+
+#: templates/html/studio_view.html:55
+msgid "This is shown as grayed out text before the student has answered."
+msgstr ""
+
+#: templates/html/studio_view.html:60
+msgid "Likert icon set"
+msgstr ""
+
+#: templates/html/studio_view.html:62
+msgid "Faces (happy to sad)"
+msgstr ""
+
+#: templates/html/studio_view.html:63
+msgid "Faces (sad to happy to sad)"
+msgstr ""
+
+#: templates/html/studio_view.html:64
+msgid "Numeric"
+msgstr ""
+
+#: templates/html/studio_view.html:67
+msgid "We can either show happy/sad faces, or numbers 1-5."
+msgstr ""
+
+#: templates/html/studio_view.html:72
+msgid "Likert prompt"
+msgstr ""
+
+#: templates/html/studio_view.html:75
+msgid "Example: Please rate your overall experience with this section."
+msgstr ""
+
+#: templates/html/studio_view.html:80
+msgid "Likert option 1"
+msgstr ""
+
+#: templates/html/studio_view.html:83
+msgid "Example: Excellent!"
+msgstr ""
+
+#: templates/html/studio_view.html:88
+msgid "Likert option 2"
+msgstr ""
+
+#: templates/html/studio_view.html:91
+msgid "Example: Good"
+msgstr ""
+
+#: templates/html/studio_view.html:96
+msgid "Likert option 3"
+msgstr ""
+
+#: templates/html/studio_view.html:99
+msgid "Example: Average"
+msgstr ""
+
+#: templates/html/studio_view.html:104
+msgid "Likert option 4"
+msgstr ""
+
+#: templates/html/studio_view.html:107
+msgid "Example: Fair"
+msgstr ""
+
+#: templates/html/studio_view.html:112
+msgid "Likert option 5"
+msgstr ""
+
+#: templates/html/studio_view.html:115
+msgid "Example: Poor"
+msgstr ""
+
+#: templates/html/studio_view.html:122
+msgid "Save"
+msgstr ""
+
+#: templates/html/studio_view.html:125
+msgid "Cancel"
+msgstr ""

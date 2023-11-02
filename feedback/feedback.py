@@ -16,33 +16,14 @@ from xblock.fields import Scope, Integer, String, List, Float
 from web_fragments.fragment import Fragment
 from xblock.utils.resources import ResourceLoader
 
-resource_loader = ResourceLoader(__name__)
+from feedback.utils import _
 
-# We provide default text which is designed to elicit student thought. We'd
-# like instructors to customize this to something highly structured (not
-# "What did you think?" and "How did you like it?".
-DEFAULT_FREEFORM = "What did you learn from this? What was missing?"
-DEFAULT_LIKERT = "How would you rate this as a learning experience?"
-DEFAULT_DEFAULT = "Think about the material, and try to synthesize key " \
-                  "lessons learned, as well as key gaps in our presentation."
-DEFAULT_PLACEHOLDER = "Take a little bit of time to reflect here. " \
-                      "Research shows that a meaningful synthesis will help " \
-                      "you better understand and remember material from " \
-                      "this course."
-DEFAULT_ICON = "face"
-DEFAULT_SCALETEXT = ["Excellent", "Good", "Average", "Fair", "Poor"]
+resource_loader = ResourceLoader(__name__)
 
 # Unicode alt faces are cute, but we do nulls instead for a11y.
 ICON_SETS = {'face': [""]*5,  # u"😁😊😐😞😭",
              'num': "12345",
              'midface': [""]*5}  # u"😞😐😊😐😞"}
-
-
-def _(text):
-    """
-    Make '_' a no-op, so we can scrape strings
-    """
-    return text
 
 
 @XBlock.needs('i18n')
@@ -59,12 +40,16 @@ class FeedbackXBlock(XBlock):
     # will default to the ones in default_prompt.
     prompts = List(
         default=[
-            {'freeform': DEFAULT_FREEFORM,
-             'default_text': DEFAULT_DEFAULT,
-             'likert': DEFAULT_LIKERT,
-             'placeholder': DEFAULT_PLACEHOLDER,
-             'scale_text': DEFAULT_SCALETEXT,
-             'icon_set': DEFAULT_ICON}
+            {'freeform': _("What did you learn from this? What was missing?"),
+             'default_text': _("Think about the material, and try to synthesize key " \
+                  "lessons learned, as well as key gaps in our presentation."),
+             'likert': _("How would you rate this as a learning experience?"),
+             'placeholder': _("Take a little bit of time to reflect here. " \
+                      "Research shows that a meaningful synthesis will help " \
+                      "you better understand and remember material from " \
+                      "this course."),
+             'scale_text': [_("Excellent"), _("Good"), _("Average"), _("Fair"), _("Poor")],
+             'icon_set': 'face'}
         ],
         scope=Scope.settings,
         help=_("Freeform user prompt"),
@@ -142,7 +127,7 @@ class FeedbackXBlock(XBlock):
                            _("Fair"),
                            _("Poor")],
             'icon_set': 'num',
-            'placeholder': "Please take a moment to thoughtfully reflect."
+            'placeholder': _("Please take a moment to thoughtfully reflect.")
         }
 
         prompt.update(self.prompts[index])
