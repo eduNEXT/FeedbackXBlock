@@ -43,16 +43,28 @@ class FeedbackXBlock(XBlock):
     # will default to the ones in default_prompt.
     prompts = List(
         default=[
-            {'freeform': _("What did you learn from this? What was missing?"),
-             'default_text': _("Think about the material, and try to synthesize key " \
-                  "lessons learned, as well as key gaps in our presentation."),
-             'likert': _("How would you rate this as a learning experience?"),
-             'placeholder': _("Take a little bit of time to reflect here. " \
-                      "Research shows that a meaningful synthesis will help " \
-                      "you better understand and remember material from " \
-                      "this course."),
-             'scale_text': [_("Excellent"), _("Good"), _("Average"), _("Fair"), _("Poor")],
-             'icon_set': 'face'}
+            {
+                "freeform": _("What did you learn from this? What was missing?"),
+                "default_text": _(
+                    "Think about the material, and try to synthesize key "
+                    "lessons learned, as well as key gaps in our presentation."
+                ),
+                "likert": _("How would you rate this as a learning experience?"),
+                "placeholder": _(
+                    "Take a little bit of time to reflect here. "
+                    "Research shows that a meaningful synthesis will help "
+                    "you better understand and remember material from "
+                    "this course."
+                ),
+                "scale_text": [
+                    _("Excellent"),
+                    _("Good"),
+                    _("Average"),
+                    _("Fair"),
+                    _("Poor"),
+                ],
+                "icon_set": "face",
+            }
         ],
         scope=Scope.settings,
         help=_("Freeform user prompt"),
