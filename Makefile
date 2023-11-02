@@ -6,6 +6,15 @@ DOCKER_NAME := feedbackxblock
 # For opening files in a browser. Use like: $(BROWSER)relative/path/to/file.html
 BROWSER := python -m webbrowser file://$(CURDIR)/
 
+
+PACKAGE_NAME := feedback
+EXTRACT_DIR := $(PACKAGE_NAME)/locale/en/LC_MESSAGES
+EXTRACTED_DJANGO := $(EXTRACT_DIR)/django-partial.po
+EXTRACTED_DJANGOJS := $(EXTRACT_DIR)/djangojs-partial.po
+EXTRACTED_TEXT := $(EXTRACT_DIR)/text.po
+JS_TARGET := public/js/translations
+TRANSLATIONS_DIR := $(PACKAGE_NAME)/translations
+
 help: ## display this help message
 	@echo "Please use \`make <target>' where <target> is one of"
 	@awk -F ':.*?## ' '/^[a-zA-Z]/ && NF==2 {printf "\033[36m  %-25s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST) | sort
@@ -65,23 +74,40 @@ dev.run: dev.clean dev.build ## Clean, build and run test image
 
 ## Localization targets
 
-WORKING_DIR := feedback
-EXTRACT_DIR := $(WORKING_DIR)/conf/locale/en/LC_MESSAGES
-JS_TARGET := $(WORKING_DIR)/public/js/translations
-EXTRACTED_DJANGO_PARTIAL := $(EXTRACT_DIR)/django-partial.po
-EXTRACTED_DJANGOJS_PARTIAL := $(EXTRACT_DIR)/djangojs-partial.po
-EXTRACTED_DJANGO := $(EXTRACT_DIR)/django.po
+extract_translations: symlink_translations ## extract strings to be translated, outputting .po files
+	cd $(PACKAGE_NAME) && i18n_tool extract
+	mv $(EXTRACTED_DJANGO) $(EXTRACTED_TEXT)
+	if [ -f "$(EXTRACTED_DJANGOJS)" ]; then cat $(EXTRACTED_DJANGOJS) >> $(EXTRACTED_TEXT); rm $(EXTRACTED_DJANGOJS); fi
 
-extract_translations: ## extract strings to be translated, outputting .po files
-	cd $(WORKING_DIR) && i18n_tool extract
-	mv $(EXTRACTED_DJANGO_PARTIAL) $(EXTRACTED_DJANGO)
-	# Safely concatenate djangojs if it exists
-	if test -f $(EXTRACTED_DJANGOJS_PARTIAL); then \
-	  msgcat $(EXTRACTED_DJANGO) $(EXTRACTED_DJANGOJS_PARTIAL) -o $(EXTRACTED_DJANGO) && \
-	  rm $(EXTRACTED_DJANGOJS_PARTIAL); \
-	fi
-	sed -i'' -e 's/nplurals=INTEGER/nplurals=2/' $(EXTRACTED_DJANGO)
-	sed -i'' -e 's/plural=EXPRESSION/plural=\(n != 1\)/' $(EXTRACTED_DJANGO)
+compile_translations: symlink_translations ## compile translation files, outputting .mo files for each supported language
+	cd $(PACKAGE_NAME) && i18n_tool generate
+	# python manage.py compilejsi18n --namespace $(PACKAGE_NAME)i18n --output $(JS_TARGET)
+
+detect_changed_source_translations:
+	cd $(PACKAGE_NAME) && i18n_tool changed
+
+dummy_translations: ## generate dummy translation (.po) files
+	cd $(PACKAGE_NAME) && i18n_tool dummy
+
+build_dummy_translations: dummy_translations compile_translations ## generate and compile dummy translation files
+
+validate_translations: build_dummy_translations detect_changed_source_translations ## validate translations
+
+pull_translations: ## pull translations from transifex
+	cd $(PACKAGE_NAME) && i18n_tool transifex pull
+
+push_translations: extract_translations ## push translations to transifex
+	cd $(PACKAGE_NAME) && i18n_tool transifex push
+
+symlink_translations:
+	if [ ! -d "$(TRANSLATIONS_DIR)" ]; then ln -s locale/ $(TRANSLATIONS_DIR); fi
+
+install_transifex_client: ## Install the Transifex client
+	# Instaling client will skip CHANGELOG and LICENSE files from git changes
+	# so remind the user to commit the change first before installing client.
+	git diff -s --exit-code HEAD || { echo "Please commit changes first."; exit 1; }
+	curl -o- https://raw.githubusercontent.com/transifex/cli/master/install.sh | bash
+	git checkout -- LICENSE README.md ## overwritten by Transifex installer
 
 html: docs  ## An alias for the docs target.
 
