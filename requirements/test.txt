@@ -20,19 +20,11 @@ astroid==3.0.1
     #   pylint-celery
 binaryornot==0.4.4
     # via cookiecutter
-<<<<<<< HEAD
-boto3==1.28.78
+boto3==1.28.79
     # via
     #   -r requirements/base.txt
     #   fs-s3fs
-botocore==1.31.78
-=======
-boto3==1.28.75
-    # via
-    #   -r requirements/base.txt
-    #   fs-s3fs
-botocore==1.31.75
->>>>>>> 7abe52e (refactor: quality fixes)
+botocore==1.31.79
     # via
     #   -r requirements/base.txt
     #   boto3
@@ -102,7 +94,7 @@ importlib-metadata==6.8.0
     # via
     #   keyring
     #   twine
-importlib-resources==6.1.0
+importlib-resources==6.1.1
     # via keyring
 iniconfig==2.0.0
     # via pytest
@@ -164,7 +156,7 @@ openedx-filters==1.6.0
     # via -r requirements/base.txt
 packaging==23.2
     # via pytest
-pbr==5.11.1
+pbr==6.0.0
     # via stevedore
 pkginfo==1.9.6
     # via twine
