@@ -95,6 +95,10 @@ def load_blocks(request, course):
     )
 
     blocks = []
+
+    if not feedback_blocks:
+        return []
+
     students = get_user_enrollments(course_id).values_list(
         "user_id", "user__username"
     )
