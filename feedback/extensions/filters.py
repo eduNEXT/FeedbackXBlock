@@ -8,10 +8,23 @@ from django.template import Context, Template
 from openedx_filters import PipelineStep
 from web_fragments.fragment import Fragment
 
-from lms.djangoapps.courseware.block_render import load_single_xblock, get_block_by_usage_id  # noqa pylint: disable=import-error
-from xmodule.modulestore.django import modulestore  # pylint: disable=import-error
-from openedx.core.djangoapps.enrollments.data import get_user_enrollments  # pylint: disable=import-error
-from cms.djangoapps.contentstore.utils import get_lms_link_for_item  # pylint: disable=import-error
+try:
+    from lms.djangoapps.courseware.block_render import load_single_xblock, get_block_by_usage_id  # noqa pylint: disable=import-error
+except:
+    load_single_xblock = None
+    get_block_by_usage_id = None
+try:
+    from xmodule.modulestore.django import modulestore  # pylint: disable=import-error
+except:
+    modulestore = None
+try:
+    from openedx.core.djangoapps.enrollments.data import get_user_enrollments  # pylint: disable=import-error
+except:
+    get_user_enrollments = None
+try:
+    from cms.djangoapps.contentstore.utils import get_lms_link_for_item  # pylint: disable=import-error
+except:
+    get_lms_link_for_item = None
 
 TEMPLATE_ABSOLUTE_PATH = "/instructor_dashboard/"
 BLOCK_CATEGORY = "feedback"
