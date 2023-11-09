@@ -136,7 +136,7 @@ def load_blocks(request, course):
             total_votes += vote * (5 - index)
 
         try:
-            average_rating = total_votes / total_answers
+            average_rating = round(total_votes / total_answers, 2)
         except ZeroDivisionError:
             average_rating = 0
 
