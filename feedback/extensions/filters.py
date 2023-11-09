@@ -129,6 +129,10 @@ def load_blocks(request, course):
                 }
             )
             total_answers += vote
+            # We have an inverted scale, so we need to invert the index
+            # to get the correct average rating.
+            # Excellent = 1, Very Good = 2, Good = 3, Fair = 4, Poor = 5
+            # So Excellent = 5, Very Good = 4, Good = 3, Fair = 2, Poor = 1
             total_votes += vote * (5 - index)
 
         try:
