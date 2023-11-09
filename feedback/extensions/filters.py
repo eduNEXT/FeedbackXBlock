@@ -180,19 +180,17 @@ def load_xblock_answers(request, students, course_id, block_id, course):
         )
         if student_xblock_instance:
             prompt = student_xblock_instance.get_prompt()
-            if (
-                student_xblock_instance.user_vote == -1
-                and not student_xblock_instance.user_freeform
-            ):
-                continue
-            answers.append(
-                {
-                    "username": username,
-                    "user_vote": prompt["scale_text"][
-                        student_xblock_instance.user_vote
-                    ],
-                    "user_freeform": student_xblock_instance.user_freeform,
-                }
-            )
+            if student_xblock_instance.user_freeform:
+                if student_xblock_instance.user_vote != -1:
+                    vote = prompt["scale_text"][student_xblock_instance.user_vote]
+                else:
+                    vote = "No vote"
+                answers.append(
+                    {
+                        "username": username,
+                        "user_vote": vote,
+                        "user_freeform": student_xblock_instance.user_freeform,
+                    }
+                )
 
     return answers

@@ -35,9 +35,11 @@
             </td>
             <td role="cell" class="pgn__data-table-cell-wrap">{{ block.average_rating }}</td>
             <td role="cell" class="pgn__data-table-cell-wrap">
-              {% for feedback in block.answers %}
-                <div class="feedback-block-answer"> * {{ feedback.user_freeform }}. Vote: {{ feedback.user_vote }}</div>
-              {% endfor %}
+              <ul>
+                {% for feedback in block.answers %}
+                <li>{% trans "Comment" %}: {{ feedback.user_freeform }}. {% trans "Vote" %}: {% if feedback.user_vote != -1 %} {{ feedback.user_vote }} {% else %} {% trans "No vote" %} {% endif %}</li>
+                {% endfor %}
+              </ul>
             </td>
           </tr>
           {% endfor %}
