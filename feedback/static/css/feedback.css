@@ -15,6 +15,10 @@
     color: green;
 }
 
+.feedback_icon > img {
+    max-width: unset;
+}
+
 /* Label for the freeform text input. We want a little
    space between this and the Likert input.*/
 .feedback_block .feedback_header_div {
